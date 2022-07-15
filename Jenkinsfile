@@ -13,7 +13,7 @@ node{
      }
      sh 'docker push jahirshawon/my-testpython:2.0.0'
    }
-   stage('Run Container on Dev Server'){ 
+   stage('Run Container on Staging'){ 
      def dockerRun = 'docker run  -p 6379:6379 -d --name redis redis'
      def dockerRun1 = 'docker run -p 4040:80 -d --link redis --name my-python-app jahirshawon/my-testpython:2.0.0'
      def dockerRun2 = 'docker rm -f my-pyhton-app'
@@ -22,7 +22,7 @@ node{
        sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun2}"
        sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun1}"
    }
-   stage('Run Container on Dev Server'){ 
+   stage('Run Container on Production'){ 
      def dockerRun = 'docker run  -p 6379:6379 -d --name redis redis'
      def dockerRun1 = 'docker run -p 4040:80 -d --link redis --name my-python-app jahirshawon/my-testpython:2.0.0'
      def dockerRun2 = 'docker rm -f my-pyhton-app'
