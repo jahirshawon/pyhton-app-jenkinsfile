@@ -2,6 +2,9 @@ node{
    stage('SCM Checkout'){
        git 'https://github.com/jahirshawon/python-app-jenkinsfile'
    }
+   stage(''Test Code){
+      sh 'ls'
+   }
    stage('build Docker Image'){
      sh 'docker build -t jahirshawon/my-testpython:2.0.0 .'
    }
