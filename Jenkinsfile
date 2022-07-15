@@ -31,6 +31,7 @@ node{
        sh "ssh -o StrictHostKeyChecking=no root@192.168.43.241 ${dockerRun3}"
        sh "ssh -o StrictHostKeyChecking=no root@192.168.43.241 ${dockerRun5}"
        sh "ssh -o StrictHostKeyChecking=no root@192.168.43.241 ${dockerRun4}"
-    }
+     }
+     }
    }
 }
