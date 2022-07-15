@@ -27,9 +27,9 @@ node{
      def dockerRun1 = 'docker run -p 4040:80 -d --link redis --name my-python-app jahirshawon/my-testpython:2.0.0'
      def dockerRun2 = 'docker rm -f my-pyhton-app'
      sshagent(['dockerserverprod']) {
-       sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun}"
-       sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun2}"
-       sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun1}"
+       sh "ssh -o StrictHostKeyChecking=no root@192.168.43.241 ${dockerRun}"
+       sh "ssh -o StrictHostKeyChecking=no root@192.168.43.241 ${dockerRun2}"
+       sh "ssh -o StrictHostKeyChecking=no root@192.168.43.241 ${dockerRun1}"
      }
    }
 }
