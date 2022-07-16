@@ -14,10 +14,12 @@ node{
    stage('Deploy on Staging'){ 
      def dockerRun = 'docker run  -p 6379:6379 -d --name redis redis'
      def dockerRun1 = 'docker run -p 4040:80 -d --link redis --name my-python-app jahirshawon/my-testpython:2.0.0'
-     def dockerRun2 = 'docker rm -f my-pyhton-app'
+     def dockerRun2 = 'docker rm -f my-python-app'
+     def dockerRun3 = 'docker rm -f redis'
      sshagent(['dockerserver4']) {
+       sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun3}"
        sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun}"
-       sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun2}"
+       sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun2}"  
        sh "ssh -o StrictHostKeyChecking=no root@192.168.43.244 ${dockerRun1}"
      }
    }
